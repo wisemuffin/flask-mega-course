@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # User class inherits UserMixin which declares methods and properties for login of users
 from flask_login import UserMixin
 from app import login
+from hashlib import md5  # vatars
 
 
 class User(UserMixin, db.Model):  # db.Model, a base class for all models from Flask-SQLAlchemy.
@@ -12,6 +13,8 @@ class User(UserMixin, db.Model):  # db.Model, a base class for all models from F
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    about_me = db.Column(db.String(140))
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):  # _repr__ method tells Python how to print objects of this class
         return '<User {}>'.format(self.username)
@@ -21,6 +24,11 @@ class User(UserMixin, db.Model):  # db.Model, a base class for all models from F
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
+            digest, size)
 
 
 @login.user_loader
