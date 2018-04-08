@@ -1,0 +1,78 @@
+2018-04-08 20:27:07,713 ERROR: Exception on /edit_profile [POST] [in c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Dave\flask-mega-course\microblog\app\routes.py", line 97, in edit_profile
+    db.session.commit()
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 467, in commit
+    self._prepare_impl()
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 177, in save_obj
+    mapper, table, update)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 768, in _emit_update_statements
+    execute(statement, multiparams)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "c:\users\dave\flask-mega-course\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username [SQL: 'UPDATE user SET username=?, about_me=? WHERE user.id = ?'] [parameters: ('susan', 'data rockstar', 2)] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-04-08 20:28:46,812 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:53]
+2018-04-08 20:36:20,970 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:53]
+2018-04-08 20:37:13,944 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:53]
+2018-04-08 20:37:27,425 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:53]
+2018-04-08 21:06:21,752 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:53]
+2018-04-08 21:12:36,082 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:53]
