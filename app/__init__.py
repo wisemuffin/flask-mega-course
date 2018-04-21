@@ -1,12 +1,13 @@
 from flask import Flask
+from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from config import Config
 from flask_login import LoginManager
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 from flask_mail import Mail
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)  # __name__ is a variable that is the name of module used
 # list of FLASK EXTENSIONS that are initalised right after the application instance
@@ -17,6 +18,7 @@ migrate = Migrate(app, db)  # migration engine.
 login = LoginManager(app)
 login.login_view = 'login'
 mail = Mail(app)
+bootstrap = Bootstrap(app)
 
 '''
 e Mail Set up for debugging
