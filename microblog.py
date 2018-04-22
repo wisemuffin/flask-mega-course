@@ -1,5 +1,5 @@
 # you need to have a Python script at the top-level that defines the Flask application instance.
-from app import app, db
+from app import app, db, cli
 from app.models import User, Post
 
 

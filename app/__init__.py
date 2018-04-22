@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -9,6 +9,7 @@ import os
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask_babel import Babel, lazy_gettext as _l
 
 app = Flask(__name__)  # __name__ is a variable that is the name of module used
 # list of FLASK EXTENSIONS that are initalised right after the application instance
@@ -18,9 +19,18 @@ migrate = Migrate(app, db)  # migration engine.
 # @login_required - can be added above a endpoint in routes.py if you only want logged in users to see
 login = LoginManager(app)
 login.login_view = 'login'
+login.login_message = _l('Please log in to access this page.')
 mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+babel = Babel(app)
+
+
+# imports the language settings in the computer's operating system
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 '''
 e Mail Set up for debugging
