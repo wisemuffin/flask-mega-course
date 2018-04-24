@@ -58,3 +58,8 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: post
 2018-04-22 19:50:21,771 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
 2018-04-22 21:57:30,410 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
 2018-04-22 21:57:43,377 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
+2018-04-25 07:47:58,624 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
+2018-04-25 08:24:14,803 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
+2018-04-25 08:26:56,921 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
+2018-04-25 08:28:25,575 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
+2018-04-25 08:28:30,542 INFO: Microblog startup [in C:\Users\Dave\flask-mega-course\microblog\app\__init__.py:67]
