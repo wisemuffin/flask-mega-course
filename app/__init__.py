@@ -10,6 +10,7 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)  # __name__ is a variable that is the name of module used
 # list of FLASK EXTENSIONS that are initalised right after the application instance
@@ -25,8 +26,15 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 babel = Babel(app)
 
+# debugging
+app.debug = True
+app.config['SECRET_KEY'] = 'dont tell anyone'
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+toolbar = DebugToolbarExtension(app)
 
 # imports the language settings in the computer's operating system
+
+
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
