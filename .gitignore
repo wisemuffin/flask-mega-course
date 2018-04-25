@@ -3,3 +3,7 @@ instance/
 config.py
 .db
 .env
+venv/
+__pycache__/
+.gitignore
+logs/
