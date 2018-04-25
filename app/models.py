@@ -1,11 +1,12 @@
 from datetime import datetime
-from app import db, app, login
+from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
 # User class inherits UserMixin which declares methods and properties for login of users
 from flask_login import UserMixin
 from hashlib import md5  # vatars
 from time import time
 import jwt
+from flask import current_app
 
 # association table to map a self-referential relationship
 # auxiliary table that has no data other than the foreign keys
@@ -65,12 +66,12 @@ class User(UserMixin, db.Model):  # db.Model, a base class for all models from F
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
-            app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
+            current_app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
 
     @staticmethod
     def verify_reset_password_token(token):
         try:
-            id = jwt.decode(token, app.config['SECRET_KEY'],
+            id = jwt.decode(token, current_app.config['SECRET_KEY'],
                             algorithms=['HS256'])['reset_password']
         except:
             return
