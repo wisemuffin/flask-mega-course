@@ -38,3 +38,7 @@ nosetests.xml
 venv
 app.db
 microblog.log*
+
+.env
+.gitattributes
+tests.py
