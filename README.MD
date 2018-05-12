@@ -1,8 +1,24 @@
-## Running the Program
+# Micro blog
+
+This website follows along to the [Miguel Grinberg's blog](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) to create a micro blogging website.
+
+* To view the site click this [link](https://flask-microblog-98865.herokuapp.com) to the heroku version of the website
+* I also have a version running on my on a digital ocean droplet [here](206.189.150.252)
+
+## Components of the website
+
+* Microsoft Translator (API)
+* Elasticsearch (API)
+* SQLAlchemy used as an ORM to switch between databases:
+  * Heroku Postrgress on the heroku deployment
+  * SQLlite when deployed to my personal server
+* Flask with a Blueprint architecture
+
+## Running the Program on local machine
 
 * set FLASK_APP=microblog.py (export = set for linux)
 * set MS_TRANSLATOR_KEY=<paste-your-key-here>
-    * see https://portal.azure.com
+    * see https://portal.azure.com to get a MS translator API.
 * flask run
 
 ### Translations
