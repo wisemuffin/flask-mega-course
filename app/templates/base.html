@@ -20,6 +20,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
                     <li><a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
+                    <li><a href="{{ url_for('main.about') }}">{{ _('About') }}</a></li>
                 </ul>
                 {% if g.search_form %}
                 <form class="navbar-form navbar-left" method="get"
@@ -76,4 +77,7 @@
             });
         }
     </script>
+    <footer class="container-fluid text-center">
+      <p>Footer Text</p>
+    </footer>
 {% endblock %}
