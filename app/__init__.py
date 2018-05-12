@@ -12,11 +12,6 @@ from flask_babel import Babel, lazy_gettext as _l
 from config import Config
 from elasticsearch import Elasticsearch
 
-from dash import Dash
-from dash.dependencies import Input, State, Output
-import dash_core_components as dcc
-import dash_html_components as html
-
 db = SQLAlchemy()
 migrate = Migrate()  # migration engine.
 # @login_required - can be added above a endpoint in routes.py if you only want logged in users to see
