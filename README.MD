@@ -46,7 +46,9 @@ To publish the new translations, they need to be compiled:
 
 ## docker image
 * docker build -t microblog:latest .
+  * need to re build container each time a change is made before running.
 * docker images
 * docker run --name microblog -d -p 8000:5000 --rm microblog:latest
   * -d = run container in background
   * -p host computer:inside container
+  * -rm delete container once terminated
