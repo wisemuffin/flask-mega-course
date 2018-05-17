@@ -8,7 +8,7 @@ This website follows along to the [Miguel Grinberg's blog](https://blog.miguelgr
 ## Components of the website
 
 * Microsoft Translator (API)
-* Elasticsearch (API)
+* Elasticsearch (API) - to host this site for free i have removed the search component from deployment.
 * SQLAlchemy used as an ORM to switch between databases:
   * Heroku Postrgress on the heroku deployment
   * SQLlite when deployed to my personal server
@@ -43,3 +43,10 @@ To publish the new translations, they need to be compiled:
 * +ve doesnt lock you into to how you access dbs
 * -ve less out of the box in flask
 * -ve django more popular -> more docs
+
+## docker image
+* docker build -t microblog:latest .
+* docker images
+* docker run --name microblog -d -p 8000:5000 --rm microblog:latest
+  * -d = run container in background
+  * -p host computer:inside container
