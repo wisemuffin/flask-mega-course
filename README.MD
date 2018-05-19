@@ -53,6 +53,22 @@ To publish the new translations, they need to be compiled:
   * -p host computer:inside container
   * -rm delete container once terminated
 
+### docker logging
+
+> docker logs microblog
+
+### store images on docker cloud
+
+> $ docker tag microblog:latest <your-docker-registry-account>/microblog:latest
+
+
+> $ docker login
+
+> $ docker push <your-docker-registry-account>/microblog:latest
+
+
+### docker add db
+
 To Set up the DB (dont forget to choose a password)
 > docker run --name mysql -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
     -e MYSQL_DATABASE=microblog -e MYSQL_USER=microblog \
@@ -72,3 +88,22 @@ docker run --name mysql -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_DATABASE=m
 
 Note removed e mail stuff:
 docker run --name microblog -d -p 8000:5000 --rm --link mysql:dbserver -e DATABASE_URL=mysql+pymysql://microblog:<password>@dbserver/microblog microblog:latest
+
+
+### Adding Elasticsearch
+
+> docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+
+> docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 --rm \
+    -e "discovery.type=single-node" \
+    docker.elastic.co/elasticsearch/elasticsearch-oss:6.1.1
+
+    docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 --rm -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch-oss:6.1.1
+
+    Note removed e mail stuff:
+    docker run --name microblog -d -p 8000:5000 --rm --link mysql:dbserver -e DATABASE_URL=mysql+pymysql://microblog:<password>@dbserver/microblog --link elasticsearch:elasticsearch -e ELASTICSEARCH_URL=http://elasticsearch:9200 microblog:latest
+
+## Other docker things to retrying
+* container orchestration platform such as Kubernetes provides an even greater level of automation and convenience, by allowing you to describe your multi-container deployments in simple text files in YAML format, with load balancing, scaling, secure management of secrets and rolling upgrades and rollbacks.
+* Amazon Container Service (ECS)
+* could use containers on Digital Ocean, Linode or Amazon Lightsail
