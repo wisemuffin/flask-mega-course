@@ -108,4 +108,4 @@ docker run --name microblog -d -p 8000:5000 --rm --link mysql:dbserver -e DATABA
 * Amazon Container Service (ECS)
 * could use containers on Digital Ocean, Linode or Amazon Lightsail
 
-Emma
+dave2
