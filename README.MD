@@ -107,3 +107,5 @@ docker run --name microblog -d -p 8000:5000 --rm --link mysql:dbserver -e DATABA
 * container orchestration platform such as Kubernetes provides an even greater level of automation and convenience, by allowing you to describe your multi-container deployments in simple text files in YAML format, with load balancing, scaling, secure management of secrets and rolling upgrades and rollbacks.
 * Amazon Container Service (ECS)
 * could use containers on Digital Ocean, Linode or Amazon Lightsail
+
+dave2
